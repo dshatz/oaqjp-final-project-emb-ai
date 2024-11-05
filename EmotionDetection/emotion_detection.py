@@ -7,5 +7,5 @@ def emotion_detector(text_to_analyze):
         json = { "raw_document": { "text": text_to_analyze } }
     ).json()
     emotions = json["emotionPredictions"][0]["emotion"]
-    emotions["dominant_emotion"] = max(emotions, key=lambda d: d[1])
+    emotions["dominant_emotion"] = max(emotions.keys(), key=lambda d: emotions[d])
     return emotions
